@@ -1,0 +1,31 @@
+[package]
+name = "user"
+version = "0.1.0"
+authors = ["Tony Zhu <t.zhu@f5.com>"]
+edition = "2018"
+
+[dependencies]
+tonic = { path = "../tonic/tonic", features = ["tls", "data-prost"]}
+bytes = "0.4"
+prost = "0.6"
+prost-derive = "0.6"
+prost-types = "0.5"
+tokio = { version = "0.2", features = ["rt-threaded", "time", "stream", "fs", "macros", "uds"] }
+futures-preview = { version = "=0.3.0-alpha.19", default-features = false, features = ["alloc"]}
+async-stream = "0.1.2"
+http = "0.2"
+tower = "0.3.0"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+console = "0.9.0"
+
+# Database(Postgresql)
+postgres = { version = "0.15.2", features = ["with-chrono"] }
+dotenv = "0.15.0"
+chrono = "0.4.9"
+uuid = { version = "0.8.1", features = ["serde", "v4"] }
+
+# Help you use gRPC protobuf files in Rust.
+[build-dependencies]
+tonic-build = { path = "../tonic/tonic-build", features = ["prost"]}
